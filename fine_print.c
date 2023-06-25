@@ -52,7 +52,7 @@ int _printf(const char *format, ...)
 				else
 				{
 					divisor = 1;
-					for(i = 1; 1 < digits; i++)
+					for (i = 1; 1 < digits; i++)
 						divisor *= 10;
 					while (divisor != 0)
 					{
