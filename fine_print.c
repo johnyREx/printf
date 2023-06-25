@@ -1,6 +1,7 @@
 #include "main.h"
 #include <stdarg.h>
 #include <unistd.h>
+#include <stdlib.h>
 
 /**
  * _printf - function that produces output accoding to format
@@ -13,11 +14,10 @@ int _printf(const char *format, ...)
 {
 	va_list args;
 	int printed_num = 0;
-	int num, is_negative, divisor, temp, digit, digits, i;
-	char c;
+	int num, is_negative, temp, num_digits, i;
+	char *buffer;
 
 	va_start(args, format);
-
 	while (*format)
 	{
 		if (*format == '%')
@@ -29,7 +29,6 @@ int _printf(const char *format, ...)
 			{
 				num = va_arg(args, int);
 				is_negative = 0;
-
 				if (num < 0)
 				{
 					write(1, "-", 1);
@@ -37,33 +36,21 @@ int _printf(const char *format, ...)
 					num = -num;
 					is_negative = 1;
 				}
-				digits = 0;
+				num_digits = 1;
 				temp = num;
-				while (temp != 0)
+				while (temp /= 10)
+					num_digits++;
+
+				buffer = malloc(sizeof(char) * num_digits + 1);
+				for (i = num_digits - 1; i >= 0; i--)
 				{
-					temp /= 10;
-					digits++;
+					buffer[i] = '0' + (num % 10);
+					num /= 10;
 				}
-				if (digits == 0)
-				{
-					write(1, "0", 1);
-					printed_num++;
-				}
-				else
-				{
-					divisor = 1;
-					for (i = 1; 1 < digits; i++)
-						divisor *= 10;
-					while (divisor != 0)
-					{
-						digit = num / divisor;
-						c = '0' + digit;
-						write(1, &c, 1);
-						printed_num++;
-						num %= divisor;
-						divisor /= 10;
-					}
-				}
+				buffer[num_digits] = '\0';
+				write(1, buffer, num_digits);
+				printed_num += num_digits;
+				free(buffer);
 				if (is_negative)
 					printed_num++;
 			}
