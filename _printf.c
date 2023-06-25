@@ -16,8 +16,10 @@ int _printf(const char *format, ...)
 	while (*format)
 	{
 		if (*format == '%')
+		{
 			format++;
 			switch (*format)
+			{
 				case 'c':
 					c = va_arg(args, int);
 					write(1, &c, 1);
@@ -41,9 +43,13 @@ int _printf(const char *format, ...)
 					write(1, &(*format), 1);
 					printed_chars += 2;
 					break;
+			}
+		}
 		else
+		{
 			write(1, &(*format), 1);
 			printed_chars++;
+		}
 			format++;
 	}
 	va_end(args);
