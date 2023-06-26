@@ -30,7 +30,7 @@ int _printf(const char *format, ...)
 					str = va_arg(args, char*);
 					if (!str)
 						str = "(null)";
-					len += puts(str);
+					len += _puts(str);
 					break;
 				case '%':
 					len += _putchar('%');

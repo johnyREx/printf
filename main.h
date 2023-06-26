@@ -2,6 +2,8 @@
 #define MAIN_H
 
 #include <stdarg.h>
+#include <stdio.h>
+#include <unistd.h>
 
 /**
  * struct specifier - struct for formst specifiers
@@ -27,5 +29,7 @@ int print_o(va_list arg);
 int print_x(va_list arg);
 int print_X(va_list arg);
 int _putchar(char c);
+int _puts(char *s);
+unsigned int _strlen(char *str);
 
 #endif
