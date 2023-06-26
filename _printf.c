@@ -4,39 +4,48 @@
 #include <unistd.h>
 
 /**
- * _printf - prints output according to a format
- * @format: format string
+ * _printf - produces output according to a format
+ * @format: character string
+ *
  * Return: number of characters printed
  */
+
 int _printf(const char *format, ...)
 {
-    int count = 0;
-    va_list args;
+	va_list args;
+	char *str;
+	int len = 0;
 
-    va_start(args, format);
+	va_start(args, format);
 
-    while (*format)
-    {
-        if (*format == '%')
-        {
-            format++;
-            if (*format == 'c')
-                count += print_char(va_arg(args, int));
-            else if (*format == 's')
-                count += print_string(va_arg(args, char *));
-            else if (*format == '%')
-                count += print_percent();
-            else
-                return (-1);
-        }
-        else
-        {
-            count += _putchar(*format);
-        }
-        format++;
-    }
-
-    va_end(args);
-
-    return (count);
+	while (*format)
+	{
+		if (*format == '%')
+		{
+			switch (*==format)
+			{
+				case 'c':
+					len += _putchar(va_arg(args, int));
+					break;
+				case 's':
+					str = va_arg(args, char*);
+					if (!str)
+						str = "(null)";
+					len += _puts(str);
+					break;
+				case '%':
+					len += _putchar('%');
+					break;
+				default:
+					len += _putchar('%');
+					len += _putchar(*format);
+					break;
+			}
+		}
+		else
+			len += _putchar(*format);
+		format++;
+	}
+	va_end(args);
+	return (len);
 }

@@ -14,6 +14,5 @@ int print_unsigned(va_list arg);
 int print_octal(va_list arg);
 int print_hex(va_list arg);
 int print_hex_upper(va_list arg);
-int _putchar(char c);
 
 #endif
