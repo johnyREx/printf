@@ -30,7 +30,7 @@ int _printf(const char *format, ...)
 					str = va_arg(args, char*);
 					if (!str)
 						str = "(null)";
-					len += _puts(str);
+					len += puts(str);
 					break;
 				case '%':
 					len += _putchar('%');
@@ -43,7 +43,7 @@ int _printf(const char *format, ...)
 		}
 		else
 			len += _putchar(*format);
-		formnat++;
+		format++;
 	}
 	va_end(args);
 	return (len);
