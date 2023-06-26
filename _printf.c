@@ -22,7 +22,7 @@ int _printf(const char *format, ...)
 	{
 		if (*format == '%')
 		{
-			switch (*==format)
+			switch (*++format)
 			{
 				case 'c':
 					len += _putchar(va_arg(args, int));
@@ -31,7 +31,7 @@ int _printf(const char *format, ...)
 					str = va_arg(args, char*);
 					if (!str)
 						str = "(null)";
-					len += _puts(str);
+					len += puts(str);
 					break;
 				case '%':
 					len += _putchar('%');
