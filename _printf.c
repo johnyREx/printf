@@ -1,10 +1,11 @@
 #include "main.h"
+#include <stdarg.h>
 #include <stdint.h>
 
 /**
  * _printf - a function that produces output according to a format.
  * @format: a character string.
- * @...: An epilisis to indicate continuation of  arguments.
+ * @...: An ellipsis to indicate continuation of  arguments.
  *
  * Return: Number of characters printed(excluding the null terminator).
  */
