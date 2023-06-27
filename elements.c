@@ -79,7 +79,7 @@ int p_char(va_list args)
 	return (1);
 }
 /**
- * p_strint - prints a string
+ * p_string - prints a string
  * @args: hundles variadic function
  *
  * Return: a string
@@ -100,7 +100,7 @@ int p_string(va_list args)
 
 /**
  * p_percent - prints the modulus sign on stdout
- * args: hundles a variadic function
+ * @args: hundles a variadic function
  * Return: i on success
  */
 
