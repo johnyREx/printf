@@ -3,9 +3,7 @@
 
 #include <stdarg.h>
 
-int _putchar(char c);
-int _puts(char *str);
 int _printf(const char *format, ...);
-int print_number(int n);
+unsigned int _strlen(char *str);
 
 #endif
