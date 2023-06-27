@@ -109,17 +109,3 @@ int p_percent(__attribute__((unused))va_list args)
 	_putchar('%');
 	return (1);
 }
-/**
- * p_integer - ptints an in on stdout
- * @args: hundles a variadic function
- *
- * Return: the integer printed
- */
-
-int p_integer(va_list args)
-{
-	int n;
-
-	n = print_number(args);
-	return (n);
-}
