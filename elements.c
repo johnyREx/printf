@@ -9,59 +9,29 @@
 
 int print_number(va_list args)
 {
-	int n;
-	int check;
 	int len;
-	unsigned int num;
 
-	n = va_arg(args, int);
-	check = 1;
-	len = 0;
-
-	if (n < 0)
-	{
-		len += _putchar('-');
-		num = n * -1;
-	}
-	else
-		num = n;
-	for (; num / check > 9;)
-		check *= 10;
-	for (; check != 0;)
-	{
-		len += _putchar('0' + num / check);
-		num %= check;
-		check /= 10;
-	}
+	len = print_number(args);
 	return (len);
 }
 
 /**
  * print_unsigned_number - function that prints unsigned integer
- * @n: the int to print
+ * @args: list of all arguments
  *
  * Return: 0 on success
  */
-int print_unsigned_number(unsigned int n)
+int unsigned_number(va_list args)
 {
-	int check;
-	int len;
-	unsigned int num;
+	unsigned int n;
 
-	check = 1;
-	len = 0;
-	num = n;
+	n = va_arg(list, unsigned int);
 
-	for (; num / check > 9;)
-		check *= 10;
-
-	for (; check != 0;)
-	{
-		len += _putchar('0' + num / check);
-		num %= check;
-		check /= 10;
-	}
-	return (len);
+	if (n == 0)
+		return (print_unsigned_number(n));
+	if (n < 1)
+		return (-1);
+	return (print_unsigned_number(n));
 }
 
 /**
