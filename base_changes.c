@@ -16,7 +16,7 @@ int p_binary(va_list args)
 	char *str;
 	char *rev_str;
 
-	n = va_arg(arg, unsigned int);
+	n = va_arg(args, unsigned int);
 	if (n == 0)
 		return (_putchar('0'));
 	if (n < 1)
@@ -94,7 +94,7 @@ int p_hex(va_list args)
 	char *hex_rep;
 	char *rev_hex;
 
-	n = va_arg(list, unsigned int);
+	n = va_arg(args, unsigned int);
 
 	if (n == 0)
 		return (_putchar('0'));
@@ -140,7 +140,7 @@ int p_heX(va_list args)
 	char *hex_rep;
 	char *rev_hex;
 
-	num = va_arg(args, unsigned int);
+	n = va_arg(args, unsigned int);
 
 	if (n == 0)
 		return (_putchar('0'));
@@ -161,7 +161,7 @@ int p_heX(va_list args)
 		}
 		else
 			hex_rep[len] = rem_num + 48;
-		n - n / 16;
+		n = n / 16;
 	}
 	hex_rep[len] = '\0';
 	rev_hex = rev_string(hex_rep);
