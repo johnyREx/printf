@@ -7,7 +7,7 @@
  * Return: length of string
  */
 
-int print_number(va_list args)
+int print_integer(va_list args)
 {
 	int len;
 
